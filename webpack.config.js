@@ -11,6 +11,12 @@ module.exports = {
     print: "./src/print.js",
   },
   devtool: "inline-source-map",
+  devServer: {
+    static: "./dist", //rebuilds when anything changes
+  },
+  optimization: {
+    runtimeChunk: "single",
+  },
   plugins: [
     new HtmlWebpackPlugin({
       title: "Output Management",
@@ -22,6 +28,7 @@ module.exports = {
     path: path.resolve(__dirname, "dist"),
     clean: true, //cleans the old files in dist dir on each build
   },
+
   module: {
     rules: [
       {
