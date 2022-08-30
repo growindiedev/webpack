@@ -1,17 +1,25 @@
 const path = require("path");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 const toml = require("toml");
 const yaml = require("yamljs");
 const json5 = require("json5");
 
 module.exports = {
+  mode: "production",
   entry: {
     index: "./src/index.js",
-    print: "./src/print.js",
+    ekagai: "./src/ekagai.js",
   },
-  mode: "production",
+  plugins: [
+    new HtmlWebpackPlugin({
+      title: "Output Management",
+    }),
+    // using this plugin to automatically generate index.html
+  ],
   output: {
     filename: "[name].bundle.js",
     path: path.resolve(__dirname, "dist"),
+    clean: true, //cleans the old files in dist dir on each build
   },
   module: {
     rules: [
