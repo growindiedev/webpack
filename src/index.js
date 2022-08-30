@@ -1,5 +1,8 @@
 import _ from "lodash";
 import "./style.css";
+import Icon from "./oui.png";
+import Data from "./data.xml";
+import Notes from "./data.csv";
 
 function component() {
   const element = document.createElement("div");
@@ -8,6 +11,12 @@ function component() {
 
   element.innerHTML = _.join(["Hello", "webpack"], " ");
   element.classList.add("hello");
+  //document.querySelector("body").classList.add("unagi");
+  const myIcon = new Image();
+  myIcon.src = Icon;
+  element.appendChild(myIcon);
+  console.log("xml", Data);
+  console.log("csv", Notes);
 
   return element;
 }
