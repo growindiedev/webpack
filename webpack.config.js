@@ -8,8 +8,9 @@ module.exports = {
   mode: "production",
   entry: {
     index: "./src/index.js",
-    ekagai: "./src/ekagai.js",
+    print: "./src/print.js",
   },
+  devtool: "inline-source-map",
   plugins: [
     new HtmlWebpackPlugin({
       title: "Output Management",
